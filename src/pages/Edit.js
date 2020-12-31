@@ -1,15 +1,26 @@
 import React from "react";
 import "../assets/styles/ViewStyles.sass";
-import {ReactComponent as PoliticasImg } from "../assets/styles/images/img1.svg";
 
+import FeatureList from "../components/edit/FeatureList"
 class Edit extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
-      empresas: []
-    }
+      politicasvisible: false,
+      telesVisible: false,
+      desarrolloVisible: false
+    };
   }
-  handleClick(){
+  toggleViews(currentkey){
+    Object.keys(this.state).forEach (key => {
+      this.setState({
+        [key]: false
+      });
+    });
+    this.setState({
+      [currentkey]: !this.state[currentkey]
+    })
 
   }
 
@@ -17,12 +28,7 @@ class Edit extends React.Component {
     return(
       <div className="contend">
         <div className="feature-section">
-          <div className="feature-list">
-            <div className="feature-item" onClick={this.handleClick}>
-              <PoliticasImg className="feature-item.img"/>
-              <div className="feature-item-text">piliticas de seguridad</div>
-            </div>
-          </div>
+          <FeatureList handleClick={this.toggleViews.bind(this)}/>
         </div>
       </div>
     );
