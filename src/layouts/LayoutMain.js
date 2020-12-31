@@ -1,9 +1,17 @@
 import React from "react";
-
+import "../assets/styles/LayoutStyles.sass"
 const Layout = ({children}) => (
 
   <React.Fragment>
-    <h1>hola desde el layout</h1>
+  <header>
+    <div className="content">
+      <lu>
+        <li>
+          <a href="/">home</a>
+        </li>
+      </lu>
+    </div>
+  </header>
     {children}
   </React.Fragment>
 );
