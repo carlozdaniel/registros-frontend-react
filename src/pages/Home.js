@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+import "../assets/styles/HomeStyles.sass"
 class Ejemplo extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +20,7 @@ class Ejemplo extends React.Component {
   listEmpresas(){
     return this.state.empresas.map(empresa => {
       return(
-        <div key={empresa.id}>
+        <div key={empresa.id} className="itemList-item">
           <h1>{empresa.name}</h1>
           {empresa.description}
         </div>
@@ -30,7 +30,9 @@ class Ejemplo extends React.Component {
 
   render(){
     return(
-      <div className="App">{this.listEmpresas()}</div>
+      <div className="App">
+        <div className="itemList">{this.listEmpresas()}</div>
+      </div>
     );
   }
 }
