@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "../assets/styles/HomeStyles.sass"
-class Ejemplo extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,4 +36,4 @@ class Ejemplo extends React.Component {
     );
   }
 }
-export default Ejemplo;
+export default Home;
