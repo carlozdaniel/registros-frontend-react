@@ -1,8 +1,6 @@
 import React from "react";
-import "../assets/styles/ViewStyles.sass";
-import EditBox from "../components/edit/EditBox";
-import FeatureList from "../components/edit/FeatureList";
-class Edit extends React.Component {
+
+class politicasForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,4 +33,4 @@ class Edit extends React.Component {
     );
   }
 }
-export default Edit;
+export default politicasForm;
