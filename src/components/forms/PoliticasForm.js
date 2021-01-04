@@ -14,13 +14,17 @@ class PoliticasForm extends React.Component {
   SelectConuntoPoliticas(e) {
     this.setState({
       conunto_politicas: e.target.value
-    })
+    });
   }
   SelectRevisionPoliticas(e) {
     this.setState({
       revision_politica: e.target.value
-    })
+    });
   }
+  componentDidUpdate(){
+    this.sendChanges();
+  }
+
   sendChanges() {
     console.log(this.state);
   }
@@ -37,7 +41,6 @@ class PoliticasForm extends React.Component {
           value="no realizado"
           handleSelect={this.SelectRevisionPoliticas.bind(this)}
         />
-       <button onClick={this.sendChanges.bind(this)}>actualizar datos</button>
       </React.Fragment>
     );
   }
