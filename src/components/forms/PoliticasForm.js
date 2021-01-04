@@ -6,10 +6,23 @@ class PoliticasForm extends React.Component {
     super(props);
 
     this.state = {
+      "conunto_politicas": "123",
+      "revision_politica": "hola"
     };
   }
-  handleSelect() {
 
+  SelectConuntoPoliticas(e) {
+    this.setState({
+      conunto_politicas: e.target.value
+    })
+  }
+  SelectRevisionPoliticas(e) {
+    this.setState({
+      revision_politica: e.target.value
+    })
+  }
+  sendChanges() {
+    console.log(this.state);
   }
   render(){
     return(
@@ -17,13 +30,14 @@ class PoliticasForm extends React.Component {
         <SelectForm
           description="conjunto de políticas  para la seguridad de la información"
           value="no realizado"
-          handleSelect={this.handleSelect}
+          handleSelect={this.SelectConuntoPoliticas.bind(this)}
         />
         <SelectForm
           description="revicion de las políticas de seguridad de la información"
           value="no realizado"
-          handleSelect={this.handleSelect}
+          handleSelect={this.SelectRevisionPoliticas.bind(this)}
         />
+       <button onClick={this.sendChanges.bind(this)}>actualizar datos</button>
       </React.Fragment>
     );
   }
