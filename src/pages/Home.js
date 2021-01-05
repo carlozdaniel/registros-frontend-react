@@ -1,20 +1,17 @@
 import React from "react";
-import axios from "axios";
 import "../assets/styles/HomeStyles.sass"
+import * as empresasActions from "../actions/empresasActions"
+import {connect} from "react-redux";
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      empresas: []
-    }
+      empresas: [],
+    };
   }
 
   componentDidMount() {
-    axios.get("http://localhost:1500/api/v1/empresas").then(response => {
-      this.setState({
-        empresas: response.data
-      });
-    });
+   if(!this.props.data) this.props.loadData();
   }
 
   listEmpresas(){
@@ -36,4 +33,10 @@ class Home extends React.Component {
     );
   }
 }
-export default Home;
+
+
+const mapStateToProps = reducers => {
+  return reducers.empresasReducer;
+}
+
+export default connect(mapStateToProps, empresasActions)(Home);
